@@ -23,9 +23,9 @@ export = function(options) {
         throw new Error('Provide S3 access secret');
     }
     if (!options.HOST_NAME) {
-        options.HOST_NAME = `https://s3.${options.S3_REGION}.amazonaws.com/${options.S3_BUCKET}/`
+        options.HOST_NAME = `https://s3.${options.S3_REGION}.amazonaws.com/${options.S3_BUCKET}`
     }
-    return async function sign(fileName, fileType, permissions : "public-read") : Promise<{signed_request:string, url:string}> {
+    return async function sign(fileName, fileType, permissions = "public-read") : Promise<{signed_request:string, url:string}> {
         let fileExtention : String = fileType.split('/').pop();
         fileName = `${new Date().getTime()}-${Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 6)}.${fileExtention}`
         const s3Params = {

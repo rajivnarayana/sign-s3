@@ -10,9 +10,9 @@ router.route('/').post((req, res, next) => {
     req.query.file_name = req.body.file_name;
     req.query.file_type = req.body.file_type;
     next();
-}).get(async (req, res, next) => {
+}).all(async (req, res, next) => {
     try {
-        res.status(200).send(await signModule()(req.body.file_name, req.body.file_type));
+        res.status(200).send(await signModule()(req.query.file_name, req.query.file_type));
     } catch (err) {
         next(err);
     }
