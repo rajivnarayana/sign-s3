@@ -1,0 +1,15 @@
+{
+  "name": "sign-s3-sample",
+  "version": "1.0.0",
+  "description": "A sample express application for sign s3",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index.js"
+  },
+  "author": "Rajiv Narayana Singaseni",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "sign-s3": "../"
+  }
+}
