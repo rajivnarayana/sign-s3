@@ -1,10 +1,10 @@
 const express = require("express");
 const signS3 = require('sign-s3')({
-    S3_BUCKET : 'volery-images',
-    S3_ACCESS_KEY : 'AKIAIA5SJQH2TVBS6NEQ',
-    S3_ACCESS_SECRET : 'BA/fE+kANbPslK6dWy6sBzaFhhUz68epbtYWoJXR',
-    S3_REGION : 'ap-south-1',
-    HOST_NAME :'https://diko2ohln5bxp.cloudfront.net'
+    S3_BUCKET : '<your bucket name>',
+    S3_ACCESS_KEY : '<your s3 access key>',
+    S3_ACCESS_SECRET : '<your s3 access secret>',
+    S3_REGION : '<s3 bucket region>',
+    HOST_NAME :'<alternate host name like cloud front>'
 });
 
 const signS3Router = require('sign-s3/router');
