@@ -26,7 +26,7 @@ export = function(options) {
         options.HOST_NAME = `https://s3.${options.S3_REGION}.amazonaws.com/${options.S3_BUCKET}`
     }
     return async function sign(fileName, fileType, permissions = "public-read") : Promise<{signed_request:string, url:string}> {
-        let fileExtention : String = fileType.split('/').pop();
+        let fileExtention : string = fileName.split('.').pop() || fileType.split('/').pop();
         fileName = `${new Date().getTime()}-${Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 6)}.${fileExtention}`
         const s3Params = {
             Bucket : options.S3_BUCKET,
