@@ -12,7 +12,7 @@ const defaults = {
 }
 
 export = function(options) {
-    options = Object.assign(defaults, options);
+    options = Object.assign({}, defaults, options);
     if (!options.S3_BUCKET) {
         throw new Error('Provide a bucket name');
     }
